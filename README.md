@@ -3,3 +3,67 @@ This site tells about linux technologies used in daily life,this  is for practic
 
 
 <h1>Hello this is linux files</h1>
+
+1.CREATE POLICY FOR AGENT
+
+Create a policy with
+ CloudWatchAgentAdminPolicy.
+AmazonEC2RoleforSSM 
+
+
+The role i created is Cloudwatch_agent_admin_policy_role
+
+2.ATTACH ROLE
+
+
+
+3.FLEET MANAGER
+Go TO  SSM AND SEE IF ATTACHED ROLE SERVERS ARE VISIBLE IN FLEET MANAGER
+
+
+
+
+4.RUN COMMAND
+
+
+Run command is used to manage fleet of server a single command,but we use AWS CONFIGURE PACKAGE
+And select target as our ec2 servers
+
+Make sure to type name exactly because it is the application name if given wrong ,will return error
+
+
+
+5.OTHER EC2 INSTANCES
+Just download and keep agent with wget
+
+6 .ON SERVER
+These are given below
+
+
+
+Got to /opt ,from there in bin , give ./ for running cloudwatch config file 
+
+Here give the path of logs we want to see 
+
+
+Here store the generated config file in parameters store so that we can install other server from this one by a click
+
+
+7.OPEN SSM
+and select AmazonCloudWatch-ManageAgent ,
+
+For this there will be config ,and optional configuration location we will give parameters name which we generated in 6 th point last image
+
+8.STATUS OF CLOUDWATCH
+
+
+Now we login into our server and type  
+service amazon-cloudwatch-agent status
+To see if it is running or not 
+
+9.NEW SERVER
+For other servers
+
+We can just select and give path ,it will automatically install cloudwatch agent along with all parameters of 1 st server 
+
+
